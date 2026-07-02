@@ -4,12 +4,6 @@ A production-grade Flutter mobile application for tracking job applications — 
 
 ---
 
-## 📱 Screenshots
-
-> Coming soon — add screenshots after recording demo
-
----
-
 ## 🛠 Tech Stack
 
 | Category | Technology |
@@ -30,25 +24,27 @@ A production-grade Flutter mobile application for tracking job applications — 
 
 This project follows strict **Clean Architecture** with three fully separated layers:
 
+```
 lib/
-├── core/ # Shared utilities
-│ ├── constants/app_colors.dart # Design system colors
-│ └── router/app_router.dart # Centralized navigation
+├── core/                          # Shared utilities
+│   ├── constants/app_colors.dart  # Design system colors
+│   └── router/app_router.dart     # Centralized navigation
 │
-├── domain/ # Pure Dart — zero dependencies
-│ ├── entities/ # Core business objects
-│ ├── repositories/ # Abstract contracts
-│ └── usecases/ # Business logic (one class, one job)
+├── domain/                        # Pure Dart — zero dependencies
+│   ├── entities/                  # Core business objects
+│   ├── repositories/              # Abstract contracts
+│   └── usecases/                  # Business logic (one class, one job)
 │
-├── data/ # Depends on domain only
-│ ├── models/ # Entities + JSON conversion
-│ ├── datasources/ # Hive operations
-│ └── repositories/ # Repository implementations
+├── data/                          # Depends on domain only
+│   ├── models/                    # Entities + JSON conversion
+│   ├── datasources/               # Hive operations
+│   └── repositories/              # Repository implementations
 │
-└── presentation/ # Depends on domain only
-├── bloc/ # Events, States, BLoC
-├── pages/ # Full screens
-└── widgets/ # Reusable components
+└── presentation/                  # Depends on domain only
+    ├── bloc/                      # Events, States, BLoC
+    ├── pages/                     # Full screens
+    └── widgets/                   # Reusable components
+```
 
 **Dependency Rule:** Dependencies only point inward.
 - Presentation → Domain
@@ -76,13 +72,15 @@ lib/
 
 14 tests covering all layers:
 
+```
 test/
 ├── domain/usecases/
-│ └── get_jobs_usecase_test.dart # Use case unit tests
+│   └── get_jobs_usecase_test.dart     # Use case unit tests
 ├── data/repositories/
-│ └── job_repository_impl_test.dart # Repository unit tests
+│   └── job_repository_impl_test.dart  # Repository unit tests
 └── presentation/bloc/
-└── job_bloc_test.dart # BLoC tests (BlocTest)
+    └── job_bloc_test.dart             # BLoC tests (BlocTest)
+```
 
 Run all tests:
 
